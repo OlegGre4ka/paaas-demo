@@ -1,0 +1,22 @@
+ /* downloaded from https://fontsloader.com/types/basier-circle#google_vignette */
+ @font-face {
+     font-family: 'Basier Circle';
+     src: local('Basier Circle Circle Regular'), local('Basier-Circle-Circle-Regular'),
+         url('./BasierCircle/BasierCircle-Regular.eot?#iefix') format('embedded-opentype'),
+         url('./BasierCircle/BasierCircle-Regular.woff2') format('woff2'),
+         url('./BasierCircle/BasierCircle-Regular.woff') format('woff'),
+         url('./BasierCircle/BasierCircle-Regular.ttf') format('truetype');
+     font-weight: normal;
+     font-style: normal;
+ }
+
+ @font-face {
+     font-family: 'PT Sans';
+     src: local('PT Sans'), local('PTSans-Regular'),
+         url('./PTSans/PTSans-Regular.eot?#iefix') format('embedded-opentype'),
+         url('./PTSans/PTSans-Regular.woff2') format('woff2'),
+         url('./PTSans/PTSans-Regular.woff') format('woff'),
+         url('./PTSans/PTSans-Regular.ttf') format('truetype');
+     font-weight: normal;
+     font-style: normal;
+ }
