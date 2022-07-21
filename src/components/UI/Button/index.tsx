@@ -1,6 +1,6 @@
 import React from "react";
 import BtnStyled from "./styled.js";
-import  {ButtonProps}  from "../../../interfaces/Button";
+import  {ButtonProps}  from "../../../interfaces/ButtonProps";
 
 const Button: React.FC<ButtonProps> = ({ children, clickHandler, disabled,
      width, height, color, backgroundColor, hoverBackgroundColor, borderColor }) => {   
