@@ -8,10 +8,11 @@ const StepThree: React.FC = () => {
     <FlexBox>
       <LeftPartWrapper>StepThree</LeftPartWrapper>
       <RightPartWrapper>
-      <StepSlider step={3}/>
-        <H2>What’s your citizenship status?</H2>
+      <StepSlider />
+        <H2>What’s your address?</H2>
         <PrevNextButtons
-          prevPath="/"
+          prevPath="/citizenship"
+          nextPath="/step-four"
         />
       </RightPartWrapper>
     </FlexBox>

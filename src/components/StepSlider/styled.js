@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Circle = styled.span`
-  width: 14px;
+  width: 16px;
   height: 15px;
   border-radius: 50%;
   background-color: ${props => props.backgroundColor ? props.backgroundColor : "#d8d8d8"}; 
@@ -12,8 +12,19 @@ const ActiveCircle = styled.span`
   height: 8px;
   border-radius: 50%;
   border: 5px solid #2d8f43;
-//   background-color: blue;
 `;
 
-export {Circle, ActiveCircle}
-export default Circle
+const Line = styled.div`
+  flex-shrink: 15;
+  width: 100%;
+  height: 2px;
+  background-color: #d8d8d8;
+`
+const ActiveLine = styled.div`
+  flex-shrink: 15;
+  box-sizing: border-box;
+  width: 100%;
+  height: 2px;
+  background-color: #2d8f43;
+`
+export {Circle, ActiveCircle, Line, ActiveLine}

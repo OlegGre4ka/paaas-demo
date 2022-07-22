@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { FlexBox } from "./../shared-styled";
-import { StepSliderProps } from "./../../interfaces/StepSliderProps";
-import {Circle, ActiveCircle} from "./styled";
+import { useAppSelector } from "./../../hooks/reduxHooks";
 
-const StepSlider: React.FC<StepSliderProps> = (
-    { step }
-) => {
+import { FlexBox } from "./../shared-styled";
+import { Circle, ActiveCircle, Line, ActiveLine } from "./styled";
+
+const StepSlider: React.FC = () => {
+    const { step } = useAppSelector((state) => (state.steps));
     const [backgroundColor1, setBackgroundColor1] = useState("#d8d8d8");
     const [backgroundColor2, setBackgroundColor2] = useState("#d8d8d8");
     const [backgroundColor3, setBackgroundColor3] = useState("#d8d8d8");
@@ -15,13 +15,18 @@ const StepSlider: React.FC<StepSliderProps> = (
     useEffect(
         () => {
             setCircleColors(step);
-        },[step]
+        }, [step]
     )
     const setCircleColors = (step: number) => {
         switch (step) {
+            case 1:
+                setBackgroundColor2("#d8d8d8");
+                setBackgroundColor3("#d8d8d8");
+                setBackgroundColor4("#d8d8d8");
+                setBackgroundColor5("#d8d8d8");
+                break;
             case 2:
                 setBackgroundColor1("#2d8f43")
-                // setBackgroundColor2("blue");
                 setBackgroundColor3("#d8d8d8");
                 setBackgroundColor4("#d8d8d8");
                 setBackgroundColor5("#d8d8d8");
@@ -33,16 +38,38 @@ const StepSlider: React.FC<StepSliderProps> = (
                 setBackgroundColor4("#d8d8d8");
                 setBackgroundColor5("#d8d8d8");
                 break;
-            default: break;
+            case 4:
+                setBackgroundColor1("#2d8f43")
+                setBackgroundColor2("#2d8f43");
+                setBackgroundColor3("#2d8f43");
+                setBackgroundColor5("#d8d8d8");
+                break;
+            case 5:
+                setBackgroundColor1("#2d8f43")
+                setBackgroundColor2("#2d8f43");
+                setBackgroundColor3("#2d8f43");
+                setBackgroundColor4("#2d8f43");
+                break;
+            default:
+                setBackgroundColor2("#d8d8d8");
+                setBackgroundColor3("#d8d8d8");
+                setBackgroundColor4("#d8d8d8");
+                setBackgroundColor5("#d8d8d8");
+                break;
         }
     }
     return (
-        <FlexBox justifyContent="space-between">
-            <Circle backgroundColor={backgroundColor1} />
-            {step === 2 ? <ActiveCircle/> : <Circle backgroundColor={backgroundColor2} />}
-            {step === 3 ? <ActiveCircle/> : <Circle backgroundColor={backgroundColor3} />}
-            <Circle backgroundColor={backgroundColor4} />
-            <Circle backgroundColor={backgroundColor5} />
+        <FlexBox justifyContent="space-between" alignItems="center" >
+            {step === 1 ? <ActiveCircle /> : <Circle backgroundColor={backgroundColor1} />}
+            {step !== 1 ? <ActiveLine /> : <Line />}
+            {step === 2 ? <ActiveCircle /> : <Circle backgroundColor={backgroundColor2} />}
+            {step > 2 ? <ActiveLine /> : <Line />}
+            {step === 3 ? <ActiveCircle /> : <Circle backgroundColor={backgroundColor3} />}
+            {step > 3 ? <ActiveLine /> : <Line />}
+            {step === 4 ? <ActiveCircle /> : <Circle backgroundColor={backgroundColor4} />}
+            {step > 4 ? <ActiveLine /> : <Line />}
+            {step === 5 ? <ActiveCircle /> : <Circle backgroundColor={backgroundColor5} />}
+
         </FlexBox>
 
     )

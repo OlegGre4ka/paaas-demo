@@ -2,12 +2,18 @@ import styled from 'styled-components'
 
 const FlexBox = styled.div`
   display: flex;
+  flex-shrink: 0;
   justify-content ${props => props.justifyContent ? props.justifyContent : null};
   flex-direction: ${props => props.flexDirection ? props.flexDirection : null};
   align-items: ${props => props.alignItems ? props.alignItems : null};
-  width: ${props => props.width ? props.width : ""};
+  width: ${props => props.width ? props.width : "100%"};
+  height: ${props => props.height ? props.height : ""};
+  margin: ${props => props.margin ? props.margin : ""};
   padding: ${props => props.padding ? props.padding : ""};
-
+  background-color: ${props => props.backgroundColor ? props.backgroundColor : ""};
+  border-radius: ${props => props.borderRadius ? props.borderRadius : ""};
+  box-sizing: border-box;
+  
   @media (max-width:480px){
     display: ${({displayMobile}) => displayMobile ? displayMobile : null};
     flex-direction: ${({flexDirectionMobile}) => flexDirectionMobile ? flexDirectionMobile : null};
