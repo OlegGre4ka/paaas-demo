@@ -4,6 +4,7 @@ import { useAppSelector } from "../../hooks/reduxHooks";
 import PrevNextButtons from "./../../components/PrevNextButtons";
 import StepSlider from "./../../components/StepSlider";
 import LoanComponent from "./components/LoanComponent";
+import InfoBlock from "./components/InfoBlock";
 import LoginBlock from "./../../components/LoginBlock";
 
 const StepOne: React.FC = () => {
@@ -13,6 +14,7 @@ const StepOne: React.FC = () => {
     <FlexBox>
       <LeftPartWrapper>
         <LoginBlock/>
+        <InfoBlock/>
       </LeftPartWrapper>
       <RightPartWrapper>
         <StepSlider />

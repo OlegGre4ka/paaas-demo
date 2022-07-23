@@ -25,14 +25,18 @@ const LeftPartWrapper = styled.div`
   display: block;
   width: 560px!important;
   height: 900px;
+  // height: fit-content;
   background-color: #2D8F43;
   padding: 55px 64px;
+  overflow-y: auto;
 `
 const RightPartWrapper = styled.div`
   width: 100%;
   height: 900px;
+  // height: fit-content;
   background-color: #f2f4f5;
   padding: 64px;
+  overflow-y: hidden;
 `
 const H2 = styled.h2`
   font-weight: 600;
