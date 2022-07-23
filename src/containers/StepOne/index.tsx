@@ -4,13 +4,16 @@ import { useAppSelector } from "../../hooks/reduxHooks";
 import PrevNextButtons from "./../../components/PrevNextButtons";
 import StepSlider from "./../../components/StepSlider";
 import LoanComponent from "./components/LoanComponent";
+import LoginBlock from "./../../components/LoginBlock";
 
 const StepOne: React.FC = () => {
   const { disabled } = useAppSelector((state) => (state.amount));
 
   return (
     <FlexBox>
-      <LeftPartWrapper>StepOne</LeftPartWrapper>
+      <LeftPartWrapper>
+        <LoginBlock/>
+      </LeftPartWrapper>
       <RightPartWrapper>
         <StepSlider />
         <H2>How much do you need to borrow?</H2>

@@ -22,10 +22,11 @@ const FlexBox = styled.div`
   }
 `
 const LeftPartWrapper = styled.div`
-  width: 560px;
+  display: block;
+  width: 560px!important;
   height: 900px;
   background-color: #2D8F43;
-  padding: 64px;
+  padding: 55px 64px;
 `
 const RightPartWrapper = styled.div`
   width: 100%;
@@ -42,9 +43,9 @@ const H2 = styled.h2`
   `
 const SpanText = styled.span`
   font-family: "Basier Circle";
-  font-size: 16px;
-  font-weight: 400;
-  color: ${props => props.color ? props.color : "8F929a"};
+  font-size: ${({fontSize}) => fontSize ? fontSize : "16px"};
+  font-weight: ${({fontWeight}) => fontWeight ? fontWeight : "400"};
+  color: ${({color}) => color ? color : "8F929a"};
   `
 const ErrorText = styled.span`
   font-family: "PT Sans";

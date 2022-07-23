@@ -9,5 +9,8 @@ export interface ButtonProps {
     color?: string;
     backgroundColor?: string;
     hoverBackgroundColor?: string;
-    borderColor?: string;
+    padding?: string;
+    hoverColor?:string;
+    hooverBackgroundColor?: string;
+    border?: string;
 }

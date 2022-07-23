@@ -24,12 +24,15 @@ const PrevNextButtons: React.FC<PrevNextButtonsProps> = ({ prevPath, nextPath, n
             {step !== 1 && <Button
                 clickHandler={onClickPrevHandler}
                 disabled={false}
+                border="1px solid #2d8f43"
             >Previous Step</Button>}
             {step !== 5 && <Button
                 clickHandler={onClickNextHandler}
                 disabled={nextDisabled}
                 color="#ffffff"
                 backgroundColor="#2d8f43"
+                padding="13px 30px"
+                hooverBackgroundColor="#39b32e"
             >Continue</Button>}
         </FlexBox >
     )

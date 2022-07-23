@@ -3,7 +3,7 @@ import BtnStyled from "./styled.js";
 import  {ButtonProps}  from "../../../interfaces/ButtonProps";
 
 const Button: React.FC<ButtonProps> = ({ children, clickHandler, disabled,
-     width, height, color, backgroundColor, hoverBackgroundColor, borderColor }) => {   
+     width, height, color, backgroundColor, hoverBackgroundColor, border, padding, hoverColor, hooverBackgroundColor }) => {   
     return (<BtnStyled
         onClick={clickHandler}
         disabled={disabled}
@@ -12,7 +12,10 @@ const Button: React.FC<ButtonProps> = ({ children, clickHandler, disabled,
         color={color}
         backgroundColor={backgroundColor}
         hoverBackgroundColor={hoverBackgroundColor}
-        borderColor={borderColor}
+        border={border}
+        padding={padding}
+        hoverColor={hoverColor}
+        hooverBackgroundColor={hooverBackgroundColor}
     >{children}</BtnStyled>)
 }
 export default Button
