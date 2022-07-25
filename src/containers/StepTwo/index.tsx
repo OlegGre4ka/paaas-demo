@@ -13,7 +13,6 @@ const StepTwo: React.FC = () => {
         <PrevNextButtons
           prevPath="/"
           nextPath="/address"
-        //   step={2}
         />
       </RightPartWrapper>
     </FlexBox>

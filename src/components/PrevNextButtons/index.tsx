@@ -8,7 +8,6 @@ import { PrevNextButtonsProps } from "../../interfaces/PrevNextButtonsProps";
 
 const PrevNextButtons: React.FC<PrevNextButtonsProps> = ({ prevPath, nextPath, nextDisabled }) => {
     const { step } = useAppSelector((state) => (state.steps));
-    console.log(step, "in Buttons");
     let navigate = useNavigate();
     const dispatch = useAppDispatch();
     const onClickPrevHandler = () => {

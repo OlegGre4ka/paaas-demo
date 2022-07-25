@@ -1,7 +1,10 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '../../../../hooks/reduxHooks';
+import { setAccordion, updateAccordion } from '../../../../redux/slices/accordionSlice';
 import { FlexBox, SpanText } from "./../../../../components/shared-styled";
-import { TipWrapper, TipHeader, TipBody, AccordeonWrapper, AccordeonHeader, AccordeonBody, ArrowDownIcon, ArrowUpIcon } from "./styled";
-import { accordeonData } from "./data";
+import { TipWrapper, TipHeader, TipBody, ArrowDownIcon, ArrowUpIcon, } from "./styled";
+import { Accordion, AccordionSummary, AccordionDetails } from "./accordion-styled";
+import { accordionStartData } from "./data";
 import Icon from "./../../../../components/UI/Icon";
 import Finger from "./../../../../assets/finger.png";
 import Think from "./../../../../assets/think.png";
@@ -9,21 +12,20 @@ interface InfoData {
     id: number;
     head: string;
     body: string;
-    isOpen: boolean;
+    isOpen: boolean | undefined;
 }
+
 const InfoBlock = () => {
-    const [infoData, setInfoData] = useState<any[]>(accordeonData);
+    const { accordionData: infoData } = useAppSelector((state) => (state.accordion));
+    const dispatch = useAppDispatch();
 
-    const toggleAccordon = (id: number) => {
-        let infoElement = infoData && infoData.find((el: InfoData) => el.id === id);
-        infoElement.isOpen = !infoElement.isOpen;
-        const filteredInfoData = infoData.filter((el: InfoData) => el.id !== id)
-        // const updateInfoData = infoData.map((el: any) => el.id === id && el.isOpen === false ? el.isOpen=true : el.isOpen=false);
-        console.log(infoElement, "infoElement");
-        setInfoData([...filteredInfoData, infoElement].sort((a: any, b: any) => a.id - b.id))
-    }
+    useEffect(() => {
+        return () => {
+            console.log("cleaned up");
+            dispatch(setAccordion([...accordionStartData]));
+        };
+    }, [dispatch]);
 
-    console.log(infoData, "infoData");
     return (
         <FlexBox flexDirection="column">
             <TipWrapper>
@@ -37,22 +39,19 @@ const InfoBlock = () => {
                     </SpanText>
                 </TipBody>
             </TipWrapper>
-            {infoData.map(item =>
-                <AccordeonWrapper key={item.id} onClick={() => toggleAccordon(item.id)} isActive={item.isOpen}>
-                    {!item.isOpen ? <FlexBox alignItems="center" borderRaduis="30px" padding="10px">
+            {infoData.map((item: InfoData) => <div style={{ marginTop: "15px" }} key={item.id} onClick={() => dispatch(updateAccordion(item.id))}>
+                <Accordion>
+                    <AccordionSummary>
                         <Icon image={Think} alt="Think icon" />
-                        <SpanText color="#ffffff" fontWeight="600">{item.head}</SpanText>
+                        <SpanText color="#ffffff" fontWeight="600" marginTop="0px">{item.head}</SpanText>
                         {item.isOpen ? <ArrowUpIcon /> : <ArrowDownIcon />}
-                    </FlexBox>
-                        : <AccordeonHeader>
-                            <Icon image={Think} alt="Think icon" />
-                            <SpanText color="#ffffff" fontWeight="600">{item.head}</SpanText>
-                            {item.isOpen ? <ArrowUpIcon /> : <ArrowDownIcon />}
-                        </AccordeonHeader>}
-                    {item.isOpen && <AccordeonBody>
-                        <SpanText color="#ffffff" fontWeight="600">{item.body}</SpanText>
-                    </AccordeonBody>}
-                </AccordeonWrapper>)}
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        {item.body}
+                    </AccordionDetails>
+                </Accordion>
+            </div>
+            )}
         </FlexBox >
     )
 }

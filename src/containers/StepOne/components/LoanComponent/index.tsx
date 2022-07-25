@@ -6,7 +6,7 @@ import Input from "./../../../../components/UI/Input";
 import LoanSlider from "./styled";
 
 const LoanComponent: React.FC = () => {
-    const [sliderValue, setSliderValue] = useState(1000);
+    const [sliderValue, setSliderValue] = useState<any>(1000);
     const schema = yup.object().shape({
         amount: yup
             .string()
@@ -14,13 +14,13 @@ const LoanComponent: React.FC = () => {
             .test("amount", "Loans cannot be smaller than $1,000",
                 (value: any, ctx) => {
                     return (
+                        // +value.split(",").join("") > 1000
                         +value.substring(1).split(",").join("") > 1000
                     );
                 }
             )
     });
 
-    console.log(sliderValue, "Number(sliderValue)");
     return (
         <FlexBox flexDirection="column" justifyContent="center" width="100%" height="233px"
             margin="32px 0px 32px 0px" padding="40px" backgroundColor="#ffffff" borderRadius="16px">
@@ -46,12 +46,15 @@ const LoanComponent: React.FC = () => {
                             <SpanText>Loan Size</SpanText>
                             <Input
                                 name="amount"
-                                value={`$${Number(values.amount).toLocaleString('en-US')}`}
-                                changeHandler={(e: any) => {
+                                value={
+                                    values.amount && typeof values.amount === "string" && values.amount !== "" && Number(values.amount.substring(1).split(",").join("")) > 500000 ?
+                                        "$500,000"
+                                        : values.amount !== "" ? `$${values.amount.toLocaleString('en-US')}` : ""}
+                                changeHandler={(e: React.ChangeEvent<HTMLInputElement>) => {
                                     handleChange(e);
                                     const targetValue = e.target.value;
-                                    let currentNumberValue = targetValue.substring(1).split(",").join("");
-                                    (currentNumberValue >= 500000 || sliderValue === 500000) ? setSliderValue(500000) : setSliderValue(+currentNumberValue);
+                                    let currentNumberValue = (targetValue === "$" || targetValue === "$0") ? "" : +targetValue.substring(1).split(",").join("");
+                                    currentNumberValue > 500000 ? setSliderValue(500000) : setSliderValue(currentNumberValue === 0 ? targetValue : currentNumberValue);
                                 }}
                                 placeholder="Loan Size"
                                 isBorderError={!!errors.amount}

@@ -1,5 +1,5 @@
 import React from "react";
-import { FlexBox, LeftPartWrapper, RightPartWrapper, H2 } from "./../../components/shared-styled";
+import { FlexBox, LeftPartWrapper, RightPartWrapper, H2, SpanText } from "./../../components/shared-styled";
 import { useAppSelector } from "../../hooks/reduxHooks";
 import PrevNextButtons from "./../../components/PrevNextButtons";
 import StepSlider from "./../../components/StepSlider";
@@ -19,6 +19,7 @@ const StepOne: React.FC = () => {
       <RightPartWrapper>
         <StepSlider />
         <H2>How much do you need to borrow?</H2>
+        <SpanText color="#8f929a">You can estimate your loan size and always change it later.</SpanText>
               <LoanComponent />
               <PrevNextButtons
                 nextPath="/citizenship"

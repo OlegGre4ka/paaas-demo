@@ -12,11 +12,14 @@ const InputComponent = styled.input.attrs(props => ({
   line-height: 20px;
   border: none;
   border-bottom: 1px solid #d8d8d8;
-//   margin-bottom: 16px;
   padding: 8px 0px;
   &:focus{
     outline: none;
     border-bottom: ${({isBorderError}) => isBorderError ? "1px solid #ff4141" : "1px solid #000"};
+  &::placeholder{
+    color: lightgrey;
+    font-size: 16px;
+  }
   }
 `
 export default InputComponent

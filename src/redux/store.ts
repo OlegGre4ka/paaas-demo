@@ -1,11 +1,14 @@
 import stepsSlice from "./slices/stepsSlice";
 import amountSlice from "./slices/amountSlice";
+import accordionSlice from "./slices/accordionSlice";
+
 const { configureStore } = require("@reduxjs/toolkit");
 
 export const store = configureStore({
     reducer: {
         steps: stepsSlice,
-        amount: amountSlice
+        amount: amountSlice,
+        accordion: accordionSlice
     },
     middleware: (getDefaultMiddleware: any) => [
         ...getDefaultMiddleware()
