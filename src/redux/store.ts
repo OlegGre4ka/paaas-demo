@@ -1,3 +1,13 @@
+import {
+    persistReducer,
+    FLUSH,
+    REHYDRATE,
+    PAUSE,
+    PERSIST,
+    PURGE,
+    REGISTER
+} from "redux-persist";
+import storage from "redux-persist/lib/storage";
 import stepsSlice from "./slices/stepsSlice";
 import amountSlice from "./slices/amountSlice";
 import accordionSlice from "./slices/accordionSlice";
@@ -6,12 +16,16 @@ const { configureStore } = require("@reduxjs/toolkit");
 
 export const store = configureStore({
     reducer: {
-        steps: stepsSlice,
+        steps: persistReducer({ key: "steps", storage }, stepsSlice),
         amount: amountSlice,
         accordion: accordionSlice
     },
     middleware: (getDefaultMiddleware: any) => [
-        ...getDefaultMiddleware()
+        ...getDefaultMiddleware({
+            serializableCheck: {
+                ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER]
+            }
+        })
     ]
 });
 

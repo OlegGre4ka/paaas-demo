@@ -4,7 +4,6 @@ import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
 const TipWrapper = styled.div`
   height: 178px ;
   height: fit-content;
-  margin-bottom: 16px;
 `
 const TipHeader = styled.div`
   display: flex;
@@ -26,51 +25,22 @@ const TipBody = styled.div`
   border: 2px solid rgba(255,255,255,0.2);
   border-radius: 0 0 30px 30px;
 `
-// const accordeonAnimation = keyframes`
-// 0% {
-//   height: 68px ;
-// }
-// 100% {
-//   height: auto ;
-// }
-// `
-// const accordeonBackAnimation = keyframes`
-// 0% {
-//   height: 168px ;
-//   height: fit-content;
-// }
-// 100% {
-//   height: 68px ;
-// }
-// `
-// const AccordeonWrapper = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   align-items: flex-start;
-//   height: ${props => typeof props.isActive === "boolean" ? (props.isActive ? "68px" : "auto") : "68px"} ;
-//   margin-bottom: 16px!important;
-//   background-color: rgba(255,255,255,0.2);
-//   border: 2px solid rgba(255,255,255,0.2);
-//   border-radius: 30px;
-//   box-sizing: border-box;
-//   cursor: pointer;
-//   outline: none;
-//   transition: ${props => typeof props.isActive === "boolean" && "0.9s"};
-//   animation:  ${props => typeof props.isActive === "boolean" && (props.isActive ? accordeonAnimation : accordeonBackAnimation)} .2s 1 linear forwards;
-// `
-
 const ArrowDownIcon = styled(MdKeyboardArrowDown)`
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   font-weight: 700;
   color: #fff;
+  // text-aligh: right!important;
   cursor: pointer;
+  transition: all .2s ease;
+  -webkit-transform-origin: center top;
+  transform-origin: center top;
 `
 const ArrowUpIcon = styled(MdKeyboardArrowUp)`
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   font-weight: 700;
   color: #fff;
   cursor: pointer;
 `
-    export {TipWrapper, TipHeader, TipBody, ArrowDownIcon, ArrowUpIcon }
+export { TipWrapper, TipHeader, TipBody, ArrowDownIcon, ArrowUpIcon }

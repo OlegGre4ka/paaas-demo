@@ -3,21 +3,24 @@ import styled  from 'styled-components';
 const FlexBox = styled.div`
   display: flex;
   flex-shrink: 0;
-  justify-content ${props => props.justifyContent ? props.justifyContent : null};
-  flex-direction: ${props => props.flexDirection ? props.flexDirection : null};
-  align-items: ${props => props.alignItems ? props.alignItems : null};
-  width: ${props => props.width ? props.width : "100%"};
-  height: ${props => props.height ? props.height : ""};
-  margin: ${props => props.margin ? props.margin : ""};
-  padding: ${props => props.padding ? props.padding : ""};
-  background-color: ${props => props.backgroundColor ? props.backgroundColor : ""};
-  border-radius: ${props => props.borderRadius ? props.borderRadius : ""};
+  justify-content ${ ({justifyContent})=> justifyContent ? justifyContent : null};
+  flex-direction: ${({flexDirection}) => flexDirection ? flexDirection : null};
+  align-items: ${({alignItems}) => alignItems ? alignItems : null};
+  width: ${({width}) => width ? width : "100%"};
+  max-width: ${({maxWidth}) => maxWidth ? maxWidth : ""};
+  height: ${({height}) => height ? height : ""};
+  margin: ${({margin}) => margin ? margin : ""};
+  padding: ${({padding}) => padding ? padding : ""};
+  background-color: ${({backgroundColor}) => backgroundColor ? backgroundColor : ""};
+  border-radius: ${({borderRadius}) => borderRadius ? borderRadius : ""};
   box-sizing: border-box;
 `
 const LeftPartWrapper = styled.div`
   display: block;
-  width: 560px;
-  height: 900px;
+  position: sticky;
+  width: 780px;
+  height: 100vh;
+  max-height: calc(100vh - 85px);
   background-color: #2D8F43;
   padding: 55px 64px;
   overflow-y: auto;
@@ -44,8 +47,8 @@ const SpanText = styled.span`
   font-size: ${({fontSize}) => fontSize ? fontSize : "16px"};
   font-weight: ${({fontWeight}) => fontWeight ? fontWeight : "400"};
   line-height: 20px;
-  color: ${({color}) => color ? color : "8F929a"};
-  background-color: ${({backgroundColor}) => backgroundColor ? backgroundColor : "8F929a"};
+  color: ${({color}) => color ? color : ""};
+  background-color: ${({backgroundColor}) => backgroundColor ? backgroundColor : ""};
   margin-top: ${({marginTop}) => marginTop ? marginTop : "0px"};
   margin-bottom: ${({marginBottom}) => marginBottom ? marginBottom : "0px"};
   padding:  ${({padding}) => padding ? padding : ""};

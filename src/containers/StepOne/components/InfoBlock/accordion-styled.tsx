@@ -10,17 +10,12 @@ const Accordion = styled((props: AccordionProps) => (
     disableGutters
     elevation={0} square {...props}
   />
-))(({ theme }) => ({
-  // backgroundColor: "transparent",
+))(() => ({
   backgroundColor: "rgba(255,255,255,0.2)",
   border: "2px solid rgba(255,255,255,0.2)",
   color: "#ffffff",
   borderRadius: "30px",
   padding: "0px",
-  '&.css-8p1etx-MuiButtonBase-root-MuiAccordionSummary-root': {
-    padding: '0px',
-    backgroundColor: 'orange',
-  },
   '&:not(:last-child)': {
     borderBottom: 0,
   },
@@ -31,13 +26,13 @@ const Accordion = styled((props: AccordionProps) => (
 
 const AccordionSummary = styled((props: AccordionSummaryProps) => (
   <MuiAccordionSummary
-    // expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem' }} />}
     {...props}
   />
 
-))(({ theme }) => ({
+))(() => ({
+  display: "flex",
   borderRadius: "30px",
-  flexDirection: 'row-reverse',
+  justifyContent: "space-between",
   '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
     transform: 'rotate(90deg)',
     display: 'none'
@@ -45,11 +40,11 @@ const AccordionSummary = styled((props: AccordionSummaryProps) => (
   '& .MuiAccordionSummary-content': {
     display: 'flex',
     alignItems: 'center',
-    padding: '0px'
+    padding: '0px 25px 0px 0px'
   },
 }));
 
-const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
+const AccordionDetails = styled(MuiAccordionDetails)(() => ({
   padding: "30px 40px",
   border: "none",
   borderRadius: '0 0 30px 30px',

@@ -15,7 +15,7 @@ const LoanComponent: React.FC = () => {
                 (value: any, ctx) => {
                     return (
                         // +value.split(",").join("") > 1000
-                        +value.substring(1).split(",").join("") > 1000
+                        value && +value.substring(1).split(",").join("") > 1000
                     );
                 }
             )
@@ -65,7 +65,7 @@ const LoanComponent: React.FC = () => {
                 )}
             </Formik>
             <LoanSlider
-                onChange={(e: any, val: any) => { setSliderValue(val); console.log(val, "mouse-event") }}
+                onChange={(e: Event, val: number|number[]) => setSliderValue(val) }
                 value={sliderValue}
                 step={1}
                 min={1000}

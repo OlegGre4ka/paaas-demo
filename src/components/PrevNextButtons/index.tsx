@@ -31,7 +31,7 @@ const PrevNextButtons: React.FC<PrevNextButtonsProps> = ({ prevPath, nextPath, n
                 color="#ffffff"
                 backgroundColor="#2d8f43"
                 padding="13px 30px"
-                hooverBackgroundColor="#39b32e"
+                hooverBackgroundColor="rgba(45, 143, 57,0.8)"
             >Continue</Button>}
         </FlexBox >
     )

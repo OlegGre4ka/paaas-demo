@@ -21,7 +21,6 @@ const InfoBlock = () => {
 
     useEffect(() => {
         return () => {
-            console.log("cleaned up");
             dispatch(setAccordion([...accordionStartData]));
         };
     }, [dispatch]);
@@ -42,9 +41,13 @@ const InfoBlock = () => {
             {infoData.map((item: InfoData) => <div style={{ marginTop: "15px" }} key={item.id} onClick={() => dispatch(updateAccordion(item.id))}>
                 <Accordion>
                     <AccordionSummary>
-                        <Icon image={Think} alt="Think icon" />
-                        <SpanText color="#ffffff" fontWeight="600" marginTop="0px">{item.head}</SpanText>
-                        {item.isOpen ? <ArrowUpIcon /> : <ArrowDownIcon />}
+                        <FlexBox alignItems="center" >
+                            <Icon image={Think} alt="Think icon" />
+                            <SpanText color="#ffffff" fontWeight="600" marginTop="0px" padding="0px">{item.head}</SpanText>
+                        </FlexBox>
+                        <FlexBox width="32px">
+                            {item.isOpen ? <ArrowUpIcon /> : <ArrowDownIcon />}
+                        </FlexBox>
                     </AccordionSummary>
                     <AccordionDetails>
                         {item.body}

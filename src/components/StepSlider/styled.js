@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 const Circle = styled.span`
   width: 16px;
@@ -20,6 +20,16 @@ const Line = styled.div`
   height: 2px;
   background-color: #d8d8d8;
 `
+// const toActiveLineAnimation = keyframes`
+// 0% {
+//  width:0%;
+// }
+// 100% {
+// width: 100%;
+// }
+// `
+// animation:  ${props => props.isActive && toActiveLineAnimation} .4s 1 linear forwards;
+
 const ActiveLine = styled.div`
   flex-shrink: 15;
   box-sizing: border-box;
@@ -27,4 +37,4 @@ const ActiveLine = styled.div`
   height: 2px;
   background-color: #2d8f43;
 `
-export {Circle, ActiveCircle, Line, ActiveLine}
+export { Circle, ActiveCircle, Line, ActiveLine }

@@ -35,16 +35,15 @@ const accordionSlice = createSlice({
     name: "accordion",
     initialState,
     reducers: {
-        setAccordion: (state: any, action) => {
+        setAccordion: (state: AccordionData, action) => {
             state.accordionData = action.payload;
         },
-        updateAccordion: (state: any, action) => {
+        updateAccordion: (state:any, action) => {
             const id = action.payload;
             let infoElement = state.accordionData.find((el: InfoData) => el.id === id);
             infoElement.isOpen = !infoElement.isOpen;
             const filteredInfoData = state.accordionData.filter((el: InfoData) => el.id !== id)
-            console.log(id, [...filteredInfoData, { ...infoElement }].sort((a: any, b: any) => a.id - b.id), "id");
-            state.accordionData = [...filteredInfoData, { ...infoElement }].sort((a: any, b: any) => a.id - b.id);
+            state.accordionData = [...filteredInfoData, { ...infoElement }].sort((a: InfoData, b: InfoData) => a.id - b.id);
         },
     }
 });

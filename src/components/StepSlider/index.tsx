@@ -61,7 +61,7 @@ const StepSlider: React.FC = () => {
     return (
         <FlexBox justifyContent="space-between" alignItems="center" >
             {step === 1 ? <ActiveCircle /> : <Circle backgroundColor={backgroundColor1} />}
-            {step !== 1 ? <ActiveLine /> : <Line />}
+            {step !== 1 ? <ActiveLine/> : <Line />}
             {step === 2 ? <ActiveCircle /> : <Circle backgroundColor={backgroundColor2} />}
             {step > 2 ? <ActiveLine /> : <Line />}
             {step === 3 ? <ActiveCircle /> : <Circle backgroundColor={backgroundColor3} />}

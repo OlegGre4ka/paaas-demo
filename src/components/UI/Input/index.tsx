@@ -18,7 +18,7 @@ const Input: React.FC<InputProps> = ({ name, value, changeHandler, placeholder, 
             onChange={changeHandler}
             placeholder={placeholder}
             isBorderError={isBorderError}
-            onKeyPress={(e: any) => {
+            onKeyPress={(e: React.KeyboardEvent<HTMLInputElement>) => {
                 if (!/[0-9]/.test(e.key)) {
                     e.preventDefault();
                 }
